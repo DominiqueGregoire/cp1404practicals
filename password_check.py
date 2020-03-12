@@ -1,4 +1,6 @@
 """Checks that a password has at least the minimum length specified"""
+def main():
+
 minimum_password_length = int(input("Enter minimum password length: "))
 
 password = input('Enter password')
