@@ -8,17 +8,19 @@ def main():
     temps_output_file = open('temps_output.txt', 'w')
 
     for line in temps_input_file:
-        line = temps_input_file.readline().strip('\n')
-        print(line)
-        fahrenheit = float(line)
-        print(fahrenheit + 1)
-#         celsius = convert_fahrenheit_to_celsius(temp)
-#         print(celsius)
-#
-#
-# def convert_fahrenheit_to_celsius(fahrenheit):
-#     celsius = 5 / 9 * (fahrenheit - 32)  # celsius = 5 / 9 * (fahrenheit - 32)
-#     return celsius
+        # print(float(line))
+        temperature = convert_fahrenheit_to_celsius(float(line))
+        # temperature = convert_celsius_to_fahrenheit(float(line))
+        print(temperature, file=temps_output_file)
 
+
+def convert_fahrenheit_to_celsius(fahrenheit):
+    celsius = 5 / 9 * (fahrenheit - 32)  # celsius = 5 / 9 * (fahrenheit - 32)
+    return celsius
+
+
+# def convert_celsius_to_fahrenheit(celsius):
+#     fahrenheit = celsius * 9.0 / 5 + 32  # fahrenheit = celsius * 9.0 / 5 + 32
+#     return fahrenheit
 
 main()
