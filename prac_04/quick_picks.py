@@ -38,12 +38,4 @@ def main():
         print(' '.join('{:2}'.format(number) for number in quick_pick_lines))
 
 
-
-
-
-
-
-
-
-
 main()
