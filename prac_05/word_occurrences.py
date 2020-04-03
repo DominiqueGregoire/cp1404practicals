@@ -11,8 +11,15 @@ for word in word_string.split():     # split the string into individual words
     # append the word and the amount of times it occurs in the string to the dictionary
     word_occurrences_dict[word] = word_occurrences_dict.get(word, 0) + 1
 
-#    retrieves and displays formatted word/occurrence pair
-for word, occurrence in list(word_occurrences_dict.items()):
-    print("{} : {}".format(word, occurrence))
+# sort and print the unique words in the dictionary
+unique_words = list(word_occurrences_dict.keys())
+print(unique_words)
+unique_words.sort()
+print(unique_words)
 
-print(word_occurrences_dict)
+
+#    retrieves and displays formatted word/occurrence pair
+for word in unique_words:
+    print("{} : {}".format(word, word_occurrences_dict[word]))
+
+# print(word_occurrences_dict)
