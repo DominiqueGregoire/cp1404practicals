@@ -1,8 +1,10 @@
 BoxLayout:
     orientation: 'vertical'
 #    orientation: 'horizontal'
+    id: main_box
     Button:
         text: 'Clear'
+        on_press: app.press_clear()
 
     TextInput:
         id: input_name

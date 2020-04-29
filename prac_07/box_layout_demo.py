@@ -9,9 +9,19 @@ class BoxLayoutDemo(App):
         return self.root
 
     def handle_greet(self):
-        """button handler function """
-        print('greet')
+        """
+            greet button handler
+            :return: None
+            """
         self.root.ids.output_label.text = "Hello " + self.root.ids.input_name.text
+
+    def press_clear(self):
+        """
+             Clear any buttons that have been selected (visually) and reset status text
+             :return: None
+             """
+        self.root.ids.input_name.text = ''
+        self.root.ids.output_label.text = ''
 
 
 BoxLayoutDemo().run()
