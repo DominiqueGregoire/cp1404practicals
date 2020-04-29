@@ -17,7 +17,7 @@ class BoxLayoutDemo(App):
 
     def press_clear(self):
         """
-             Clear any buttons that have been selected (visually) and reset status text
+             Clear and reset text to blank
              :return: None
              """
         self.root.ids.input_name.text = ''
