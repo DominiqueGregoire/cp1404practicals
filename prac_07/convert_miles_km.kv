@@ -1,18 +1,19 @@
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
-        id: 'input'
         TextInput:
-            text: '34'
+            id: user_input
+            text: ''
         BoxLayout:
-            id: 'directions'
             orientation: 'vertical'
             Button:
                 text: 'Up'
             Button:
                 text: 'Down'
     Button:
-        text: 'Convert m to km'
+        text: 'Convert miles to km'
+        on_press: app.handle_conversion_to_km()
     Label:
         text: '54.717'
         color: (1, 1, 0, 1)
+        id: output_label

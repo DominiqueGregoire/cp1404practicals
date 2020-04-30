@@ -12,5 +12,9 @@ class MilesConverter(App):
         self.root = Builder.load_file("convert_miles_km.kv")
         return self.root
 
+    def handle_conversion_to_km(self):
+        print("test")
+        self.root.ids.output_label.text = self.root.ids.user_input.text
+
 
 MilesConverter().run()
