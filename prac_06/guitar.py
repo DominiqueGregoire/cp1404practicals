@@ -1,8 +1,10 @@
 """CP1404
 Initialise the guitar class, fields will include name, year and cost.
+The current year can be used as a constant variable. This is so that if
+the program becomes bigger, it will be easier to locate and change.
 """
 
-YEAR = 2020  # set the current year as a constant
+# YEAR = 2020  # set the current year as a constant
 
 
 class Guitar:
@@ -18,8 +20,13 @@ class Guitar:
         return "{self.name} ({self.year}) : ${self.cost:.2f}".format(self=self)
 
     def get_age(self):
-        """return the age of the guitar"""
-        return YEAR - self.year
+        """return the age of the guitar
+        If year is to be used as a constant variable then use the hashed out return
+        statement. Otherwise the logic is that because year can be changed, then it
+        should be used as a normal variable."""
+        year = 2020
+        # return YEAR - self.year  # use this one if year is used as a constant
+        return year - self.year
 
     def is_vintage(self):
         """return true if the guitar is vintage
