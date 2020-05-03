@@ -5,7 +5,7 @@ from prac_06.car import Car
 
 
 def main():
-    """Demo test code to show how to use car class.
+    """Demo test code to show how to use Car class.
     Create a new Car object called 'limo'"""
 
     my_car = Car('my_car', 180)
