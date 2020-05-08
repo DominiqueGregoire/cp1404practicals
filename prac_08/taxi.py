@@ -7,7 +7,8 @@ from prac_08.car import Car
 
 class Taxi(Car):
     """Specialised version of a Car that includes fare costs."""
-    price_per_km = 1.23  # price per kilometer set at $1.23
+    # price per kilometer set at $1.23, rounded to nearest ten cents for use with taxi simulator program
+    price_per_km = round(1.23, 1)
 
     def __init__(self, name, fuel):
         """Initialise a Taxi instance, based on parent class Car."""

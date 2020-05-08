@@ -15,16 +15,22 @@ def main():
     print('Lets Drive!')
 
     menu_choice = input("q)uit, c)hoose taxi, d)rive\n>>> ").lower()
-    print(menu_choice)
+    # print(menu_choice)
 
     while menu_choice != "q":
         if menu_choice == "c":
-            pass
+            choose_a_taxi(taxis)
         elif menu_choice == "d":
             pass
         else:
             print("Invalid menu choice.")
         menu_choice = input("q)uit, c)hoose taxi, d)rive\n>>> ").lower()
+
+
+def choose_a_taxi(taxis):
+    """Print a list of available taxis for the user to choose from"""
+    for i, taxi in enumerate(taxis):
+        print(i, "- {}".format(taxi))
 
 
 main()
