@@ -10,7 +10,7 @@ from prac_08.taxi import Taxi
 
 def main():
     current_taxi = None
-
+    bill_to_date = 0
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     print('Lets Drive!')
 
@@ -22,7 +22,6 @@ def main():
             chosen_taxi = int(choose_a_taxi(taxis))
             # print(chosen_taxi)  # to be commented out
             current_taxi = taxis[chosen_taxi]
-            # print(current_taxi)
 
         elif menu_choice == "d":
             current_taxi.start_fare()
@@ -32,23 +31,29 @@ def main():
             current_taxi.drive(distance)
             # print(current_taxi)
             print("Your {} trip cost you ${:.2f}".format(current_taxi.name, current_taxi.get_fare()))
+            bill_to_date += current_taxi.get_fare()
+            # print("Bill to date: {}".format(bill_to_date))
 
         else:
             print("Invalid menu choice.")
 
-            print("Bill to date: {}".format(bill_to_date()))  # need to put in bill to date
+        print("Bill to date: {}".format(bill_to_date))
         menu_choice = input("q)uit, c)hoose taxi, d)rive\n>>> ").lower()
 
 
 def choose_a_taxi(taxis):
     """Print a list of available taxis for the user to choose from"""
+    print("Taxis available:")
     for i, taxi in enumerate(taxis):
         print(i, "- {}".format(taxi))
     return input("Choose taxi: ")
 
 
-def bill_to_date():
-    pass
+# def bill_to_date(current_taxi):
+#     total_fare = 0
+#     total_fare += current_taxi.get_fare()
+#     print("inside", total_fare)
+#     return total_fare
 
 
 main()
