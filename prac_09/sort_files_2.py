@@ -33,7 +33,7 @@ def main():
                 os.mkdir(category)
             except:
                 FileExistsError
-            print(extension)
+            print(extension)    # for debugging
         for file in filenames:
             print(extension)
             print(file)

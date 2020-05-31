@@ -11,39 +11,31 @@ def main():
     os.chdir('FilesToSort')
     filenames = os.listdir('.')
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
-    print([file for file in filenames])
 
-    file_extensions = ['jpg', 'doc', 'docx', 'png', 'gif', 'txt', 'xls', 'xlsx']
+    file_extensions = ['.jpg', '.doc', '.docx', '.png', '.gif', '.txt', '.xls', '.xlsx']
+    categories = []
 
     # need to use try/except to avoid FileExistsError
     for extension in file_extensions:
-        try:
-            os.mkdir(extension)
-            print("\nFiles in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
+        category = extension[1:]
+        print('category - {}'.format(category))
+        if category not in categories:
+            categories.append(category)
+            try:
+                os.mkdir(category)
 
-        except:
-            FileExistsError
+            except:
+                FileExistsError
 
     # move the files into their respective new directories
-    for file in filenames:
-        print(file)  # for debugging
-        if file.endswith('.jpg'):
-            shutil.move(file, 'jpg')
-        #         print(file)     # for debugging
-        elif file.endswith('.doc'):
-            shutil.move(file, 'doc')
-        elif file.endswith('.docx'):
-            shutil.move(file, 'docx')
-        elif file.endswith('.gif'):
-            shutil.move(file, 'gif')
-        elif file.endswith('.png'):
-            shutil.move(file, 'png')
-        elif file.endswith('.txt'):
-            shutil.move(file, 'txt')
-        elif file.endswith('.xls'):
-            shutil.move(file, 'xls')
-        elif file.endswith('.xlsx'):
-            shutil.move(file, 'xlsx')
+
+        for file in filenames:
+            # print(extension)        # for debugging
+
+            if file.endswith(extension):
+                # print(file)         # for debugging
+                # print(category)     # for debugging
+                shutil.move(file, category)
 
 
 main()
