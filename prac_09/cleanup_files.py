@@ -38,7 +38,9 @@ def main():
         # shutil.move(filename, 'temp/' + new_name)
 
 
-def get_fixed_filename(filename):
+def get_fixed_filename(filename):       # still have to find out how to fix a couple of the files
+                                        #    unsure how to go about it???
+
     """Return a 'fixed' version of filename."""
     print(filename)
     i = 0
@@ -49,7 +51,7 @@ def get_fixed_filename(filename):
     for i, letter in enumerate(filename[0:-4]):
         if '_' in filename:
             continue
-            # print(filename)
+            # print(filename)   # for debugging
 
         elif letter.isupper():
             index = filename.find(letter)
@@ -62,9 +64,9 @@ def get_fixed_filename(filename):
             corrected_section = section3  # print("corrected section is; ", corrected_section)
             filename = corrected_section
             if filename.startswith(" "):
-                print(filename)
+                # print(filename)       # for debugging
                 filename = filename[1:]
-                print(filename)
+                # print(filename)       # for debugging
 
     # print('\n', filename)
 

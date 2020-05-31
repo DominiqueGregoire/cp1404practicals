@@ -17,13 +17,13 @@ def main():
 # change directories
     os.chdir('FilesToSort')
     filenames = os.listdir('.')
-    print(filenames)    # for debugging
+    # print(filenames)    # for debugging
 
 # ask user where to put files (categories):
 # create a list of categories
     categories = []
     for extension in file_extensions:
-        print(extension)    # for debugging
+        # print(extension)    # for debugging
         category = input("What category would you like to sort {} files into?\n".format(extension))
         if category not in categories:
             categories.append(category)
@@ -33,19 +33,15 @@ def main():
                 os.mkdir(category)
             except:
                 FileExistsError
-            print(extension)    # for debugging
+            # print(extension)      # for debugging
         for file in filenames:
-            print(extension)
-            print(file)
+            # print(extension)        # for debugging
             if file.endswith(extension):
-                print(file)
-                print(category)
+                # print(file)         # for debugging
+                # print(category)     # for debugging
 
 # move the file into the directory
                 shutil.move(file, category)
-
-    print(filenames)
-    print(categories)
 
 
 main()
