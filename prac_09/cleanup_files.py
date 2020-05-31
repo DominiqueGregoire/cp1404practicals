@@ -28,9 +28,8 @@ def main():
         # Ignore directories, just process files
         if os.path.isdir(filename):
             continue
-
         new_name = get_fixed_filename(filename)
-        print("Renaming {} to {}".format(filename, new_name))
+        print("\nRenaming {} to {}\n".format(filename, new_name))
 
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
@@ -41,7 +40,37 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    print(filename)
+    i = 0
+    section1 = ''
+    section2 = ''
+    section3 = ''
+
+    for i, letter in enumerate(filename[0:-4]):
+        if '_' in filename:
+            continue
+            # print(filename)
+
+        elif letter.isupper():
+            index = filename.find(letter)
+            section1 = filename[:index]
+            section2 = filename[index:]
+            section3 = section1 + " " + section2
+            # print("section 1 is: {}\nsection 2 is: {}\nsection 3 is: {}"
+            #       .format(section1, section2, section3))  # for debugging
+
+            corrected_section = section3  # print("corrected section is; ", corrected_section)
+            filename = corrected_section
+            if filename.startswith(" "):
+                print(filename)
+                filename = filename[1:]
+                print(filename)
+
+    # print('\n', filename)
+
+    new_name = filename.replace(" ", "_").replace(".TXT", ".txt").replace('__', '_')
+
+    # print(filename)
     return new_name
 
 
@@ -67,5 +96,5 @@ def demo_walk():
             os.rename(filename, renamed_file)
 
 
-# main()
-demo_walk()
+main()
+# demo_walk()
