@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+
 import wikipedia
 
 app = Flask(__name__)
@@ -13,7 +14,9 @@ def home():
 
 @app.route('/about')
 def about():
-    return "I am still working on this"
+    # return "I'm still working on this"
+    return render_template("about.html")  # getting error still need
+                                            # to work out why??
 
 
 @app.route('/search', methods=['POST', 'GET'])
